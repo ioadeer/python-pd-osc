@@ -1,0 +1,18 @@
+#N canvas 1661 458 891 367 12;
+#X declare -stdlib mrpeach;
+#X declare -lib mrpeach;
+#X obj 194 13 declare -stdlib mrpeach;
+#X obj 194 37 declare -lib mrpeach;
+#X obj 195 114 mrpeach/unpackOSC;
+#X msg 87 54 status;
+#X obj 194 71 mrpeach/udpreceive 12345;
+#X obj 194 151 route /duracion;
+#X obj 194 176 print duracion;
+#X obj 335 174 print origen;
+#X obj 335 148 route /origen;
+#X connect 2 0 5 0;
+#X connect 2 0 8 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 8 0 7 0;
