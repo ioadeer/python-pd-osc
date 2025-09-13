@@ -10,7 +10,7 @@ def main():
     
     # Defino IP y puerto de mi servidor OSC 
     osc_server_ip = "127.0.0.1"  
-    osc_server_port = 12345  
+    osc_server_port = 3000  
     
     # Creo un cliente UDP con mi servidor 
     client = SimpleUDPClient(osc_server_ip, osc_server_port)
