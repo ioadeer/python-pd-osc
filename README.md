@@ -1,10 +1,10 @@
 # Python → OSC Starter (Windows-friendly)
 
 Este starter incluye dos scripts para enviar datos por OSC cada N segundos:
-- `api_to_osc.py`: consulta una API HTTP y envía uno o varios valores por OSC.
-- `csv_to_osc.py`: lee filas de un CSV y envía columnas por OSC.
-- `osc_listener.py`: receptor OSC simple para probar localmente.
-- `sample_data.csv`: dataset de ejemplo.
+- `Script_PD_API/weather_to_osc.py`: consulta una API HTTP y envía uno o varios valores por OSC.
+- `Script_PD_API/weather_osc.pd`: recibe datos desde weather_to_osc.py via OSC.
+- `Script_PD_Dataset/osc_script.py` : lee filas de un CSV y envía columnas por OSC.
+- `Script_PD_Dataset/bicing_osc.pd`: recibe datos desde weather_to_osc.py via OSC.
 
 ## 1) Instalación (opción recomendada: Miniconda)
 ```powershell
@@ -20,34 +20,21 @@ para ver entornos
 conda env list
 ```
 
-## 2) Instalación (opción simple: Python + pip)
-- Descargá e instalá Python desde https://www.python.org/
-- Marcá la opción "Add python.exe to PATH" durante la instalación.
+## 2) Enviar desde un CSV → OSC → PD
+Desde la terminal de Anaconda Prompt, con mi  entorno activado:
 ```powershell
-pip install -r requirements.txt
+(osc_env) python csv_to_osc.py
 ```
 
-## 3) Probar un receptor OSC local
-En una terminal:
-```powershell
-python osc_listener.py
-```
-Deberías ver en consola cualquier mensaje que llegue al `127.0.0.1:5005`.
+Abrir el patch weather_osc.pd en Pure data.
 
-## 4) Enviar desde una API → OSC
-En otra terminal:
+## 2) Enviar desde una API → OSC → PD
+Desde la terminal de Anaconda Prompt, con mi  entorno activado:
 ```powershell
-python api_to_osc.py
+(osc_env) python weather_to_osc.py
 ```
-- Configurá en el archivo (variables arriba) `API_URL`, `JSON_PATHS`, `OSC_ADDRESS_BASE`, `OSC_PORT`, `INTERVAL_SEC`.
-- `JSON_PATHS` es una lista de rutas a claves dentro del JSON para extraer valores.
-  Ejemplo: `["bpi.USD.rate_float", "bpi.EUR.rate_float"]`
 
-## 5) Enviar desde un CSV → OSC
-En otra terminal:
-```powershell
-python csv_to_osc.py
-```
+
 - Configurá `CSV_PATH`, `COLUMNS_TO_SEND`, `OSC_ADDRESS_BASE`, `OSC_PORT`, `INTERVAL_SEC`.
 - Recorre el CSV fila por fila y envía las columnas seleccionadas como mensajes OSC.
 

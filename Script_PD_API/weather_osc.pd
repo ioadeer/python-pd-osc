@@ -14,7 +14,6 @@
 #X obj 449 398 route relative_humidity_2m;
 #X msg 449 422 Mi humedad: \$1;
 #X obj 101 128 netreceive -u -b -f;
-#X obj 289 163 print;
 #X connect 0 0 1 0;
 #X connect 1 0 9 0;
 #X connect 2 0 0 0;
@@ -29,4 +28,3 @@
 #X connect 12 0 13 0;
 #X connect 13 0 8 0;
 #X connect 14 0 2 0;
-#X connect 14 1 15 0;
