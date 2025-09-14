@@ -15,6 +15,11 @@ conda activate osc_env
 pip install -r requirements.txt
 ```
 
+para ver entornos
+```
+conda env list
+```
+
 ## 2) Instalación (opción simple: Python + pip)
 - Descargá e instalá Python desde https://www.python.org/
 - Marcá la opción "Add python.exe to PATH" durante la instalación.
